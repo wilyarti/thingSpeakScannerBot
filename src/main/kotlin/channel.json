@@ -1,0 +1,515 @@
+{
+  "channel": {
+    "id": 10,
+    "name": "Arduino Ethernet",
+    "description": "Ofice Humidity using ioBridge FB-8 Humidity sensor, Arduino Diecimilia, and Ethernet Shield.",
+    "latitude": "38.846696",
+    "longitude": "-77.226494",
+    "field1": "Humidity",
+    "created_at": "2010-12-18T19:55:24Z",
+    "updated_at": "2014-08-01T19:20:51Z",
+    "last_entry_id": 7141
+  },
+  "feeds": [
+    {
+      "created_at": "2011-06-30T10:45:28Z",
+      "entry_id": 7042,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:45:45Z",
+      "entry_id": 7043,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:46:01Z",
+      "entry_id": 7044,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:46:17Z",
+      "entry_id": 7045,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:46:33Z",
+      "entry_id": 7046,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:46:49Z",
+      "entry_id": 7047,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:47:05Z",
+      "entry_id": 7048,
+      "field1": "48%"
+    },
+    {
+      "created_at": "2011-06-30T10:47:21Z",
+      "entry_id": 7049,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:47:37Z",
+      "entry_id": 7050,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:47:53Z",
+      "entry_id": 7051,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:48:09Z",
+      "entry_id": 7052,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:48:25Z",
+      "entry_id": 7053,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:48:41Z",
+      "entry_id": 7054,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:48:57Z",
+      "entry_id": 7055,
+      "field1": "46%"
+    },
+    {
+      "created_at": "2011-06-30T10:49:13Z",
+      "entry_id": 7056,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:49:29Z",
+      "entry_id": 7057,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:49:46Z",
+      "entry_id": 7058,
+      "field1": "53%"
+    },
+    {
+      "created_at": "2011-06-30T10:50:02Z",
+      "entry_id": 7059,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:50:18Z",
+      "entry_id": 7060,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:50:34Z",
+      "entry_id": 7061,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:50:50Z",
+      "entry_id": 7062,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:51:06Z",
+      "entry_id": 7063,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:51:22Z",
+      "entry_id": 7064,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:51:38Z",
+      "entry_id": 7065,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:51:54Z",
+      "entry_id": 7066,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:52:10Z",
+      "entry_id": 7067,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:52:26Z",
+      "entry_id": 7068,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:52:42Z",
+      "entry_id": 7069,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:52:58Z",
+      "entry_id": 7070,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:53:14Z",
+      "entry_id": 7071,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:53:31Z",
+      "entry_id": 7072,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:53:47Z",
+      "entry_id": 7073,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:54:03Z",
+      "entry_id": 7074,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:54:19Z",
+      "entry_id": 7075,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:54:35Z",
+      "entry_id": 7076,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:54:51Z",
+      "entry_id": 7077,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:55:07Z",
+      "entry_id": 7078,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:55:23Z",
+      "entry_id": 7079,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:55:39Z",
+      "entry_id": 7080,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:55:55Z",
+      "entry_id": 7081,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:56:11Z",
+      "entry_id": 7082,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:56:27Z",
+      "entry_id": 7083,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:56:43Z",
+      "entry_id": 7084,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:56:59Z",
+      "entry_id": 7085,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:57:15Z",
+      "entry_id": 7086,
+      "field1": "48%"
+    },
+    {
+      "created_at": "2011-06-30T10:57:32Z",
+      "entry_id": 7087,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:57:48Z",
+      "entry_id": 7088,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:58:04Z",
+      "entry_id": 7089,
+      "field1": "51%"
+    },
+    {
+      "created_at": "2011-06-30T10:58:20Z",
+      "entry_id": 7090,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:58:36Z",
+      "entry_id": 7091,
+      "field1": "47%"
+    },
+    {
+      "created_at": "2011-06-30T10:58:52Z",
+      "entry_id": 7092,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:59:08Z",
+      "entry_id": 7093,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:59:24Z",
+      "entry_id": 7094,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:59:40Z",
+      "entry_id": 7095,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T10:59:56Z",
+      "entry_id": 7096,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:00:12Z",
+      "entry_id": 7097,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:00:28Z",
+      "entry_id": 7098,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:00:44Z",
+      "entry_id": 7099,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:01:00Z",
+      "entry_id": 7100,
+      "field1": "51%"
+    },
+    {
+      "created_at": "2011-06-30T11:01:16Z",
+      "entry_id": 7101,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:01:33Z",
+      "entry_id": 7102,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:01:49Z",
+      "entry_id": 7103,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:02:05Z",
+      "entry_id": 7104,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:02:21Z",
+      "entry_id": 7105,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:02:37Z",
+      "entry_id": 7106,
+      "field1": "45%"
+    },
+    {
+      "created_at": "2011-06-30T11:02:53Z",
+      "entry_id": 7107,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:03:09Z",
+      "entry_id": 7108,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:03:25Z",
+      "entry_id": 7109,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:03:41Z",
+      "entry_id": 7110,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:03:57Z",
+      "entry_id": 7111,
+      "field1": "48%"
+    },
+    {
+      "created_at": "2011-06-30T11:04:13Z",
+      "entry_id": 7112,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:04:29Z",
+      "entry_id": 7113,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:04:45Z",
+      "entry_id": 7114,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:05:01Z",
+      "entry_id": 7115,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:05:17Z",
+      "entry_id": 7116,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:05:34Z",
+      "entry_id": 7117,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:05:50Z",
+      "entry_id": 7118,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:06:06Z",
+      "entry_id": 7119,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:06:22Z",
+      "entry_id": 7120,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:06:38Z",
+      "entry_id": 7121,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:06:54Z",
+      "entry_id": 7122,
+      "field1": "52%"
+    },
+    {
+      "created_at": "2011-06-30T11:07:10Z",
+      "entry_id": 7123,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:07:26Z",
+      "entry_id": 7124,
+      "field1": "52%"
+    },
+    {
+      "created_at": "2011-06-30T11:07:42Z",
+      "entry_id": 7125,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:07:58Z",
+      "entry_id": 7126,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:08:14Z",
+      "entry_id": 7127,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:08:30Z",
+      "entry_id": 7128,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:08:47Z",
+      "entry_id": 7129,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:09:03Z",
+      "entry_id": 7130,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:09:19Z",
+      "entry_id": 7131,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:09:35Z",
+      "entry_id": 7132,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:09:51Z",
+      "entry_id": 7133,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:10:07Z",
+      "entry_id": 7134,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:10:23Z",
+      "entry_id": 7135,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:10:39Z",
+      "entry_id": 7136,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:10:55Z",
+      "entry_id": 7137,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:11:11Z",
+      "entry_id": 7138,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:11:27Z",
+      "entry_id": 7139,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:11:56Z",
+      "entry_id": 7140,
+      "field1": "49%"
+    },
+    {
+      "created_at": "2011-06-30T11:12:12Z",
+      "entry_id": 7141,
+      "field1": "49%"
+    }
+  ]
+}
