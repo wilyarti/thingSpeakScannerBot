@@ -34,8 +34,12 @@ data class ActiveChannel(
     val weatherStation: Boolean
     )
 object ActiveChannelTable : Table() {
-    val channel_id = integer("id")
     val id_self = integer("id_self").autoIncrement().primaryKey()
+    val channel_id = integer("channel_id")
+    val name = varchar("name", 100).nullable()
+    val description = text("description").nullable()
+    val latitude = float("latitude").nullable()
+    val longitude = float("longitude").nullable()
     val last_entry_date = datetime("last_entry_date")
     val weather_station = bool("weather_station")
 }

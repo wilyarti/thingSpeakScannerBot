@@ -1,5 +1,8 @@
 package net.opens3
 
+import net.opens3.ActiveChannelTable.last_entry_date
+import net.opens3.ActiveChannelTable.channel_id
+import net.opens3.ActiveChannelTable.weather_station
 import net.opens3.ChannelTable.created_at
 import net.opens3.ChannelTable.description
 import net.opens3.ChannelTable.field1
@@ -16,9 +19,12 @@ import net.opens3.ChannelTable.longitude
 import net.opens3.ChannelTable.name
 import net.opens3.ChannelTable.updated_at
 import net.opens3.FeedTable.channel_id
+import org.eclipse.xtend.lib.macro.Active
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
+import org.joda.time.LocalDate
+import java.lang.Float.parseFloat
 
 fun connectToDB(): Unit {
     Database.connect(
@@ -89,7 +95,7 @@ fun getAllChannels(): List<Channel> {
         SchemaUtils.create(ChannelTable)
         for (thisChannel in ChannelTable.selectAll()) {
             val addedChannel = Channel(
-                id = thisChannel[channel_id],
+                id = thisChannel[ChannelTable.channel_id],
                 created_at = thisChannel[created_at].toString(),
                 description = thisChannel[description],
                 field1 = thisChannel[field1],
@@ -115,24 +121,40 @@ fun getAllChannels(): List<Channel> {
 
 fun findActiveChannels() {
     connectToDB()
+    val age = LocalDate().minusDays(7)
     transaction {
         SchemaUtils.create(ChannelTable)
         SchemaUtils.create(FeedTable)
-        val feeds = ChannelTable.join(FeedTable, JoinType.INNER, null, null) {
+        SchemaUtils.create(ActiveChannelTable)
+        ActiveChannelTable.deleteAll()
+        val count = ChannelTable.join(FeedTable, JoinType.INNER) {
             (ChannelTable.channel_id eq FeedTable.channel_id)
         }.select {
-            ChannelTable.description like "%weather%"
-         //   parseDouble(FeedTable.latitude) !== 0.0 and
-//            ChannelTable.longitude != 0.0
-           // FeedTable.created_at greater DateTime.parse("2019-3-23")
+            ( FeedTable.created_at greater DateTime.parse(age.toString())) and
+                    // Select where name or descriptions contains weather.
+                    ((ChannelTable.description like "%weather%") or (ChannelTable.name like "%weather%"))
+        }.count()
+        for(i in 0 .. count step 100) {
+            val feeds = ChannelTable.join(FeedTable, JoinType.INNER) {
+                (ChannelTable.channel_id eq FeedTable.channel_id)
+            }.select {
+                ( FeedTable.created_at greater DateTime.parse(age.toString())) and
+                // Select where name or descriptions contains weather.
+                ((ChannelTable.description like "%weather%") or (ChannelTable.name like "%weather%"))
+            }.limit(100, i)
+            for (channel in feeds) {
+                val id = ActiveChannelTable.insert{
+                    it[channel_id] = channel[ChannelTable.channel_id]
+                    it[last_entry_date] = channel[FeedTable.created_at]
+                    it[longitude] = channel[ChannelTable.longitude]
+                    it[latitude] = channel[ChannelTable.latitude]
+                    it[name] = channel[ChannelTable.name]
+                    it[description] = channel[ChannelTable.description]
+                    it[weather_station] = true
+                }
+                println(id)
+            }
         }
-
-        for (channel in feeds) {
-            println(channel[name])
-        }
-
-        // val results =  (FeedTable innerJoin ChannelTable).selectAll().select{ChannelTable.id eq FeedTable.channel_id}
-        println(feeds)
     }
 
 }
