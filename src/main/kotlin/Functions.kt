@@ -3,6 +3,7 @@ package net.opens3
 import com.intellij.internal.performance.latencyMap
 import com.intellij.openapi.vcs.changes.ignore.psi.util.updateIgnoreBlock
 import com.intellij.testFramework.disableInspections
+import io.ktor.html.insert
 import net.opens3.ChannelTable
 import net.opens3.ChannelTable.created_at
 import net.opens3.ChannelTable.description
@@ -34,6 +35,31 @@ fun connectToDB(): Unit {
         user = DB_USERNAME,
         password = DB_PASSWORD
     )
+}
+
+fun addLatestData(channel: ChannelSummary): Boolean {
+    connectToDB()
+    transaction {
+        SchemaUtils.create(FeedTable)
+        if (channel.feeds.getOrNull(0) !== null) {
+            val thisEntry = channel.feeds[0]
+            FeedTable.deleteWhere { FeedTable.entry_id eq thisEntry.entry_id }
+            FeedTable.insert {
+                it[field1] = thisEntry.field1
+                it[field2] = thisEntry.field2
+                it[field3] = thisEntry.field3
+                it[field4] = thisEntry.field4
+                it[field5] = thisEntry.field5
+                it[field6] = thisEntry.field6
+                it[field7] = thisEntry.field7
+                it[field8] = thisEntry.field8
+                it[entry_id] = thisEntry.entry_id
+                it[created_at] = thisEntry.created_at
+                it[channel_id] = channel.channel.id
+            }
+        }
+    }
+    return true
 }
 
 fun insertChannel(channel: Channel): Boolean {
