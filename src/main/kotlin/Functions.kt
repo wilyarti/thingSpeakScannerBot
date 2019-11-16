@@ -1,10 +1,5 @@
 package net.opens3
 
-import com.intellij.internal.performance.latencyMap
-import com.intellij.openapi.vcs.changes.ignore.psi.util.updateIgnoreBlock
-import com.intellij.testFramework.disableInspections
-import io.ktor.html.insert
-import net.opens3.ChannelTable
 import net.opens3.ChannelTable.created_at
 import net.opens3.ChannelTable.description
 import net.opens3.ChannelTable.field1
@@ -23,10 +18,6 @@ import net.opens3.ChannelTable.name
 import net.opens3.ChannelTable.updated_at
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
-import net.opens3.DB_ADDRESS
-import net.opens3.DB_NAME
-import net.opens3.DB_PASSWORD
-import net.opens3.DB_USERNAME
 
 fun connectToDB(): Unit {
     Database.connect(

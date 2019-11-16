@@ -68,7 +68,7 @@ suspend fun getLatestData(requests: List<String>) = supervisorScope<Unit> {
 }
 fun findChannels(): Unit {
     val intStep = 100
-    for (i in 703800..(704000) step intStep) {
+    for (i in 0..(1000*1000) step intStep) {
         val urls = mutableListOf<String>()
         for (j in i..(i + (intStep))) {
             urls.add("https://api.thingspeak.com/channels/${j}/feeds.json")
