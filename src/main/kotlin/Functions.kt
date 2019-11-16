@@ -16,8 +16,12 @@ import net.opens3.ChannelTable.latitude
 import net.opens3.ChannelTable.longitude
 import net.opens3.ChannelTable.name
 import net.opens3.ChannelTable.updated_at
+import net.opens3.FeedTable.channel_id
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.joda.time.DateTime
+import java.lang.Double.parseDouble
+import java.lang.Float.parseFloat
 
 fun connectToDB(): Unit {
     Database.connect(
@@ -111,3 +115,28 @@ fun getAllChannels(): List<Channel> {
     }
     return allChannels
 }
+
+fun findActiveChannels() {
+    connectToDB()
+    transaction {
+        SchemaUtils.create(ChannelTable)
+        SchemaUtils.create(FeedTable)
+        val feeds = ChannelTable.join(FeedTable, JoinType.INNER, null, null) {
+            (ChannelTable.id eq FeedTable.channel_id)
+        }.select {
+            ChannelTable.description like "%weather%"
+         //   parseDouble(FeedTable.latitude) !== 0.0 and
+//            ChannelTable.longitude != 0.0
+           // FeedTable.created_at greater DateTime.parse("2019-3-23")
+        }
+
+        for (channel in feeds) {
+            println(channel[name])
+        }
+
+        // val results =  (FeedTable innerJoin ChannelTable).selectAll().select{ChannelTable.id eq FeedTable.channel_id}
+        println(feeds)
+    }
+
+}
+

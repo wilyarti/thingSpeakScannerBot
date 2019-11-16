@@ -15,7 +15,8 @@ fun main(args: Array<String>): Unit {
     println("Running...")
     // find channels
     // findChannels()
-    getLastEntryForChannels()
+   // getLastEntryForChannels()
+    findActiveChannels()
 
 }
 

@@ -26,6 +26,17 @@ data class Channel(
     val updated_at: String?
 )
 
+data class ActiveChannel(
+    val id: Int,
+    val last_entry_date: String,
+    val weatherStation: Boolean
+    )
+object ActiveChannelTable : Table() {
+    val id = integer("id")
+    val id_self = integer("id_self").autoIncrement().primaryKey()
+    val last_entry_date = varchar("last_entry_date", 100)
+    val weather_station = bool("weather_station")
+}
 object ChannelTable : Table() {
     val id_self = integer("id_self").autoIncrement().primaryKey()
     val created_at = varchar("created_at", 100)
