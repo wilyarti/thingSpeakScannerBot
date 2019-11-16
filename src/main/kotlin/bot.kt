@@ -13,9 +13,19 @@ import kotlinx.coroutines.*
 
 fun main(args: Array<String>): Unit {
     println("Running...")
+    // find channels
+    // findChannels()
+    getLastEntryForChannels()
 
+}
+
+fun getLastEntryForChannels(): Unit {
+    getAllChannels()
+}
+
+fun findChannels(): Unit {
     val intStep = 100
-    for (i in 1..(1000 * 1000) step intStep) {
+    for (i in 703800..(704000) step intStep) {
         val urls = mutableListOf<String>()
         for (j in i..(i + (intStep))) {
             urls.add("https://api.thingspeak.com/channels/${j}/feeds.json")
@@ -26,6 +36,7 @@ fun main(args: Array<String>): Unit {
 
     }
 }
+
 
 suspend fun parallelRequests(requests: List<String>) = supervisorScope<Unit> {
     // Create our HTTP client
