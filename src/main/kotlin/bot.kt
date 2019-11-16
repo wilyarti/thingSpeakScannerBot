@@ -14,9 +14,9 @@ import kotlinx.coroutines.*
 fun main(args: Array<String>): Unit {
     println("Running...")
     // find channels
-    // findChannels()
-   // getLastEntryForChannels()
-    findActiveChannels()
+     findChannels()
+    //getLastEntryForChannels() // not necessary if above was run recently
+    //findActiveChannels()
 
 }
 
@@ -75,14 +75,14 @@ fun findChannels(): Unit {
             urls.add("https://api.thingspeak.com/channels/${j}/feeds.json")
         }
         runBlocking {
-            parallelRequests(urls)
+            getChannelData(urls)
         }
 
     }
 }
 
 
-suspend fun parallelRequests(requests: List<String>) = supervisorScope<Unit> {
+suspend fun getChannelData(requests: List<String>) = supervisorScope<Unit> {
     // Create our HTTP client
     val client = HttpClient(Apache) {
         install(JsonFeature) {
@@ -101,6 +101,7 @@ suspend fun parallelRequests(requests: List<String>) = supervisorScope<Unit> {
                 contentType(ContentType.Application.Json)
             }
             insertChannel(results.channel)
+            addLatestData(results)
         }
         jobs.add(job)
     }

@@ -10,7 +10,6 @@ import net.opens3.ChannelTable.field5
 import net.opens3.ChannelTable.field6
 import net.opens3.ChannelTable.field7
 import net.opens3.ChannelTable.field8
-import net.opens3.ChannelTable.id
 import net.opens3.ChannelTable.last_entry_id
 import net.opens3.ChannelTable.latitude
 import net.opens3.ChannelTable.longitude
@@ -20,8 +19,6 @@ import net.opens3.FeedTable.channel_id
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.joda.time.DateTime
-import java.lang.Double.parseDouble
-import java.lang.Float.parseFloat
 
 fun connectToDB(): Unit {
     Database.connect(
@@ -49,7 +46,7 @@ fun addLatestData(channel: ChannelSummary): Boolean {
                 it[field7] = thisEntry.field7
                 it[field8] = thisEntry.field8
                 it[entry_id] = thisEntry.entry_id
-                it[created_at] = thisEntry.created_at
+                it[created_at] = DateTime.parse(thisEntry.created_at)
                 it[channel_id] = channel.channel.id
             }
         }
@@ -62,9 +59,9 @@ fun insertChannel(channel: Channel): Boolean {
 
     transaction {
         SchemaUtils.create(ChannelTable)
-        ChannelTable.deleteWhere { ChannelTable.id eq channel.id }
+        ChannelTable.deleteWhere { ChannelTable.channel_id eq channel.id }
         ChannelTable.insert {
-            it[created_at] = channel.created_at
+            it[created_at] = DateTime.parse(channel.created_at)
             it[description] = channel.description
             it[field1] = channel.field1
             it[field2] = channel.field2
@@ -74,12 +71,12 @@ fun insertChannel(channel: Channel): Boolean {
             it[field6] = channel.field6
             it[field7] = channel.field7
             it[field8] = channel.field8
-            it[id] = channel.id
+            it[channel_id] = channel.id
             it[last_entry_id] = channel.last_entry_id
             it[latitude] = channel.latitude
             it[longitude] = channel.longitude
             it[name] = channel.name
-            it[updated_at] = channel.updated_at
+            it[updated_at] = DateTime.parse(channel.updated_at)
         }
     }
     return true
@@ -92,8 +89,8 @@ fun getAllChannels(): List<Channel> {
         SchemaUtils.create(ChannelTable)
         for (thisChannel in ChannelTable.selectAll()) {
             val addedChannel = Channel(
-                id = thisChannel[id],
-                created_at = thisChannel[created_at],
+                id = thisChannel[channel_id],
+                created_at = thisChannel[created_at].toString(),
                 description = thisChannel[description],
                 field1 = thisChannel[field1],
                 field2 = thisChannel[field2],
@@ -107,7 +104,7 @@ fun getAllChannels(): List<Channel> {
                 latitude = thisChannel[latitude],
                 longitude = thisChannel[longitude],
                 name = thisChannel[name],
-                updated_at = thisChannel[updated_at]
+                updated_at = thisChannel[updated_at].toString()
             )
             allChannels.add(addedChannel)
         }
@@ -122,7 +119,7 @@ fun findActiveChannels() {
         SchemaUtils.create(ChannelTable)
         SchemaUtils.create(FeedTable)
         val feeds = ChannelTable.join(FeedTable, JoinType.INNER, null, null) {
-            (ChannelTable.id eq FeedTable.channel_id)
+            (ChannelTable.channel_id eq FeedTable.channel_id)
         }.select {
             ChannelTable.description like "%weather%"
          //   parseDouble(FeedTable.latitude) !== 0.0 and
