@@ -30,9 +30,13 @@ data class Channel(
 
 data class ActiveChannel(
     val channel_id: Int,
+    val name: String?,
+    val description: String?,
+    val latitude: Float?,
+    val longitude: Float?,
     val last_entry_date: DateTime,
     val weatherStation: Boolean
-    )
+)
 object ActiveChannelTable : Table() {
     val id_self = integer("id_self").autoIncrement().primaryKey()
     val channel_id = integer("channel_id")
